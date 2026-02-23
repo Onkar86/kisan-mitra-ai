@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { getLiveAssistant } from '../services/geminiService';
 import { UserProfile, AIProvider } from '../types';
@@ -21,7 +20,7 @@ const VoiceAssistant: React.FC<{userProfile: UserProfile}> = ({ userProfile }) =
   const speakingTimeoutRef = useRef<number | null>(null);
   const timerIntervalRef = useRef<number | null>(null);
 
-  const isGemini = userProfile.aiProvider === AIProvider.GEMINI;
+  const isGemini = false;
 
   useEffect(() => {
     transcriptEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -179,12 +178,6 @@ const VoiceAssistant: React.FC<{userProfile: UserProfile}> = ({ userProfile }) =
 
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)] max-w-2xl mx-auto space-y-6 animate-fadeIn">
-      {!isGemini && (
-        <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex items-center gap-3 text-amber-800 text-sm font-medium">
-          <span>⚠️</span>
-          <p>Voice Assistant currently requires <b>Google Gemini</b>. Please switch your AI Engine in the Profile tab to use this feature.</p>
-        </div>
-      )}
       {/* Immersive Aura Container */}
       <div className={`flex-1 flex flex-col rounded-[3.5rem] overflow-hidden shadow-2xl transition-all duration-1000 relative border-4 ${
         isActive 

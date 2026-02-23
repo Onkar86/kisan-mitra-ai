@@ -1,8 +1,11 @@
+// This file previously contained logic for interacting with the Gemini API.
+// The Gemini API integration has been removed, but this file is retained for reference.
+// If needed, uncomment and update the code to re-enable Gemini API functionality.
 
 import { GoogleGenAI, Type } from "@google/genai";
 import { DiagnosisResult, Recommendation, GroundingSource, SupportedLanguage, LANGUAGE_LABELS } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const DIAGNOSIS_SCHEMA = {
   type: Type.OBJECT,
